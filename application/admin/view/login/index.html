@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>中小学校园管理系统后台登录</title>
+	</head>
+	{include file='globe.php'}
+	<script type="text/javascript" src="JS/login.js"></script>
+	<link href="CSS/login.css" rel="stylesheet" type="text/css">
+	
+	<body>
+		<div id="mainBody">
+			<div id="cloud1" class="cloud"></div>
+			<div id="cloud2" class="cloud"></div>
+		</div>
+
+		<div class="logintop">
+			<span>欢迎使用中小学校园信息管理系统</span>
+			<ul>
+				<li>
+					<a href="#">回首页</a>
+				</li>
+				<li>
+					<a href="#">帮助</a>
+				</li>
+				<li>
+					<a href="#">关于</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="loginbody">
+			<span class="systemlogo"></span>
+			<div class="loginbox">
+				<form id='ff' method="post">
+					<ul>
+						<li>
+							<label for="username" id="unamelabel">账号:</label>
+							<input id="username" name="username" class="easyui-textbox loginuser" data-options="height:35,required:true" />
+						</li>
+						<li>
+							<label for="password" id="unamelabel">密码:</label>
+							<input id="password" name="password" type="password" class="easyui-textbox loginpwd" data-options="height:35,required:true" />
+						</li>
+						<li>
+							<label for="code" id="unamelabel">验证码:</label>
+							<input class="easyui-textbox" name="code" id="code" data-options="height:35,required:true" />
+							<img src="{:captcha_src()}" alt="验证码" width='120px' height="33px" style='right:1px;' title="点击更换" id="verify" />
+						</li>
+						<li>
+							<a href="javascript:void(0)" onclick="login()" class="easyui-linkbutton" data-options="height:36,width:100,size:'large',iconCls:'icon-ok' " style="margin-left: 10%" />登录</a>
+							<a href="javascript:void(0)" onclick="reset()" class="easyui-linkbutton" data-options="height:36,width:100,size:'large',iconCls:'icon-lock' " style="margin-left: 13%;" />重置</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div class="loginbm">版权所有 &copy; 2017-2099 www.xxx.com </div>
+		<script>	
+			// 点击图片更换验证码
+			$('#verify').on('click',function(){
+				$(this).get(0).src='{:captcha_src()}?r='+Math.random();
+			});
+			
+			$(function() {
+				$('#ff').form('disableValidation');
+				 $('.loginbox').css({
+					'position': 'absolute',
+					'left': ($(window).width() - 692) / 2
+				});
+				$(window).resize(function() {
+					$('.loginbox').css({
+						'position': 'absolute',
+						'left': ($(window).width() - 692) / 2
+					});
+				});
+				$('#username').focus();
+				$("body").keydown(function() {
+					if(event.keyCode == "13") {
+						login();
+					}
+				})
+		   });
+		</script>
+	</body>
+</html>
