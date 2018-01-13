@@ -9,16 +9,16 @@
 	<script type="text/javascript" src="JS/login.js"></script>
 	<link href="CSS/login.css" rel="stylesheet" type="text/css">
 	
-<body style="margin:0px ; padding:0px;">
+<body style="margin:0px ; padding:0px;background: url('IMG/background.jpg') no-repeat center center fixed;	background-size: cover;">
     <!--登录窗口-->
     <div id="dlg">
         <div class="easyui-layout" fit="true">
             <div region="center" border="false" style="padding: 20px;background: #fff;">
-				<form id="ff" method="post" style="margin-left: 60px;font-size: 16px;">
+				<form id="ff" method="post" style="margin:0 auto;font-size: 16px;margin-left: 20%;">
 					<table cellpadding=5>
 						<tr>
 							<td>用户名：</td>
-							<td><input class="easyui-textbox" type="text" iconCls="icon-man" name="username" data-options="required:true" validType="length[3,16]" missingMessage="管理员的姓名不能为空" invalidMessage="用户名必须在6-16位之间" style="width:230px;height: 35px;"></input></td>
+							<td><input class="easyui-textbox" type="text" iconCls="icon-man" name="username" data-options="required:true" validType="length[3,16]" missingMessage="用户名不能为空" invalidMessage="用户名必须在3-16位之间" style="width:230px;height: 35px;"></input></td>
 						</tr>
 						<tr>
 							<td>密&nbsp;&nbsp;&nbsp;码：</td>
