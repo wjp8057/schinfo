@@ -13,7 +13,7 @@ return [
     // +----------------------------------------------------------------------
     // | 应用设置
     // +----------------------------------------------------------------------
-
+    
     // 应用命名空间
     'app_namespace'          => 'app',
     // 应用调试模式
@@ -142,6 +142,7 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
+        'HOME'  => '/schinfo/public',
     	'CSS'=>'http://localhost:88/schinfo/public/static/css',
 		'EASYUI'=>'http://localhost:88/schinfo/public/static/easyui',
 		'IMG'=>'http://localhost:88/schinfo/public/static/img',
