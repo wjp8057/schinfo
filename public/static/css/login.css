@@ -1,0 +1,44 @@
+@charset "utf-8";
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+/*登录框的标题样式*/
+.panel-title{
+	line-height: 25px;
+	height: 25px;
+	font-size: 15px;
+	text-align: center;
+    font-weight: normal;
+    vertical-align:middle;
+}
+
+
+/*button按钮样式*/
+.but{	
+	display: inline-block;;
+	height: 38px;
+	line-height: 38px;
+	margin:0 auto;
+	position:relative;
+}
+
+/*button按钮样式--登录*/
+.savabut{
+	float: left;
+	position:absolute; 
+	right: 60%;
+}
+
+/*button按钮样式--重置信息*/
+.resetbut{
+	float: left;
+    position:relative;
+    left: 60%;
+}
+
+/*button按钮样式--字体*/
+.l-btn-text{
+	font-size: 16px;
+}
+
+

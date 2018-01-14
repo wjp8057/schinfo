@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+
+/*菜单样式*/
+#menu li .tree-node .tree-title{
+	font-size: 15px;
+}
+
+
+/*菜单左侧标题*/
+.panel-header .panel-title{
+	font-size: 15px;
+}
