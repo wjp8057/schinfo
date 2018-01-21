@@ -28,9 +28,14 @@ class User extends Model{
 					    // 回滚事务
 					    User::rollback();
 					}
-                    session('user_id', $res[0]['user_id']);
-                    session('login_name', $res[0]['login_name']);
-                    session('user_name', $res[0]['user_name']);
+                    session('sessSchinfo.user_id', $res[0]['user_id']);
+                    session('sessSchinfo.login_name', $res[0]['login_name']);
+                    session('sessSchinfo.user_name', $res[0]['user_name']);
+                    if ($data['auto']=='on'){
+                        cookie('cookSchinfo.user_id', $res[0]['user_id'],7*24*3600);
+                        cookie('cookSchinfo.login_name', $res[0]['login_name'],7*24*3600);
+                        cookie('cookSchinfo.user_name', $res[0]['user_name'],7*24*3600);
+                    }
                     $result['status']=1;
                     $msg='登录成功,正在跳转到系统首页...';
                     $result['url']= request()->root(true).'/admin/index/index';
@@ -44,4 +49,40 @@ class User extends Model{
         $result['msg']=$msg;
         return $result;
 	}
+
+	//根据user_id修改密码
+    public function editpwd($params){
+	    $result=array('status'=>0,'msg'=>'','data'=>'');
+        if(empty($params)){
+            $result['msg']='缺少必要的参数，修改失败';
+            return $result;
+        }
+        if($params['login_passwd']!=$params['login_passwd2']){
+            $result['msg']='两次密码输入不一致';
+            return $result;
+        }
+        unset($params['login_passwd2']);
+        $params['login_passwd']=md5($params['login_passwd']);
+        //开启事务
+        $this->startTrans();
+        $trans=$this->where('user_id',$params['user_id'])->update(['login_passwd'=>$params['login_passwd']]);//tp5中create方法会自动根据是否有主键来判断是否新增还是修改
+        //判断事务是否成功
+        if ($trans==false){
+            $this->rollback();
+            $result['msg']='服务器内部错误，修改失败!';
+            return $result;
+        }
+        //提交事务
+        $this->commit();
+        session(NULL);
+        cookie(null);
+        $result['status']=1;
+        $result['msg']='修改成功，正在退出系统重新登录...';
+        $result['data']=array('url'=>request()->root(true).'/admin/index/index');
+        return $result;
+//        }else{
+//            $result['msg']='服务器内部错误，请重试!';
+//            return $result;
+//        }
+    }
 }

@@ -20,7 +20,7 @@ class Menus extends Model{
                 $temp['iconCls']=$val['icon'];
                 $temp['checked']='false';
                 $temp['state']='open';
-                $temp['url']=$val['url'];
+//              $temp['url']=$val['url'];
                 $temp['level']=$val['level'];
                 $temp['parent_code']='';
                 $temp['parent_id']=$val['parent_id'];
@@ -61,4 +61,24 @@ class Menus extends Model{
    			}
    		}
    }
+   
+// public function  fill_show_menu(&$obj,$result){
+//      if($result['parent_id']==$obj['id']){
+//          $temp['id']=$result['id'];
+//          $temp['code']=$result['code'];
+//          $temp['name']=$result['name'];
+//          $temp['php_url']=$result['php_url'];
+//          $temp['icon']=$result['icon'];
+//          if(empty($obj['children'])){
+//              $obj['children']=array();
+//          }
+//          array_push($obj['children'],$temp);
+//      }else{
+//          if (!empty($obj['children'])){
+//              for ($i=0;$i<count($obj['children']);$i++){
+//                  $this->fill_show_menu($obj['children'][$i],$result);
+//              }
+//          }
+//      }
+//  }
 }

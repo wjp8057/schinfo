@@ -13,7 +13,7 @@
     <!--登录窗口-->
     <div id="dlg">
         <div class="easyui-layout" fit="true">
-            <div region="center" border="false" style="padding: 20px;background: #fff;">
+            <div region="center" border="false" style="padding: 10px;background: #fff;">
 				<form id="ff" method="post" style="margin:0 auto;font-size: 16px;margin-left: 20%;">
 					<table cellpadding=5>
 						<tr>
@@ -30,6 +30,14 @@
 								<div style="float:left;width:100%;">
 									<input class="easyui-textbox" type="text" name="code" id="code" data-options="required:true" missingMessage="请输入验证码" style="width:110px;height:35px;float: left;">
 									<img src="{:captcha_src()}" id="codeimg" alt="验证码" title="点击更换验证码" style="width:110px;height:35px;float: right;"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<div style="width:100%;">
+									<input type="checkbox"  name='auto' id='auto' checked='1' style="float: left"/><label for="auto" style="min-width:50px;font-size: 12px">记住我，下次自动登录</label>
 								</div>
 							</td>
 						</tr>

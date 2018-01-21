@@ -10,3 +10,14 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+if ( ! function_exists('back_result'))
+{
+    function back_result($status=200,$msg='success',$data=array()) {
+        $msg = array(
+            'status' => $status,
+            'msg' => $msg,
+            'data' => $data,
+        );
+        return die(json_encode($msg));
+    }
+}

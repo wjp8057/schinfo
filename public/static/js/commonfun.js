@@ -40,6 +40,7 @@ function showMessage(msg='',title='消息提示',timeout=5000,showSpeed=300,show
 		width:300,//宽度
 		height:100,//高度
 		showSpeed:showSpeed,//窗口显示的过度时间
+		model:true,
 		style:{
 			right:'',
 			top:document.body.scrollTop+document.documentElement.scrollTop,

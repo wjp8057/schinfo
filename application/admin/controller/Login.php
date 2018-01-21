@@ -1,13 +1,14 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
+use think\Cookie;
 use think\Request;
 use app\admin\model\User as userModel;
 
 class Login extends Controller
 {
     public function index(){
-    	if(session('login_name')&&session('user_id')&&session('user_name')){
+    	if(session('sessSchinfo.login_name')&&session('sessSchinfo.user_id')&&session('sessSchinfo.user_name')){
     		$this->redirect('admin/index/index');
     	}
         if(request()->isAjax()){

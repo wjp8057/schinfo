@@ -58,8 +58,8 @@ $(function(){
 			}
      });
 	$('#dlg').dialog({
-		width:600,    
-  		height:290,  
+		width:600,
+  		height:290,
 	    title : '中小学校园管理系统-后台登录',
 	    iconCls:'icon-photo',
 	    collapsible:false,//可折叠按钮
@@ -83,4 +83,5 @@ $(function(){
 	    $('#dlg').dialog('center');
 	});
 });
+
 	

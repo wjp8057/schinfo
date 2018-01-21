@@ -10,14 +10,19 @@
 	<style>
 	    .layout-north div{ float:left}
 	    .homelogo{margin-top: 1px}
-	    .homeright{margin-top: 40px;margin-left:48%;font-size: 15px}
+	    .homeright{margin-top: 40px;margin-left:42%;font-size: 15px}
+	    .butstyle{margin-top: 35px;}
 	</style>
 <div class="easyui-layout" fit='true'>
         <!--上-->
 		<div  data-options="region:'north',noheader:true"  class="layout-north"  style="background-color: #3B95C8;height:74px;">
             <div class="homelogo" style="background:url(IMG/homelogo.png) no-repeat;height:71px;width: 280px;"></div>
             <div class="homeright">
-              <span id="datetime"></span>&nbsp;&nbsp; 欢迎您:<?php echo session('user_name')?>&nbsp;&nbsp;<a href="javascript:void(0)"  onclick="loginout()">退出系统</a>
+              <span id="datetime"></span>&nbsp;&nbsp; 欢迎您:<?php echo session('sessSchinfo.user_name')?>&nbsp;&nbsp;
+            </div>
+            <div class="butstyle">
+              <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" id="editpwd">修改密码</a>
+              <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" id="out">退出系统</a>
             </div>
 		</div>
 		 <!--左-->
@@ -26,17 +31,56 @@
 		</div>
 		<!--中-->
 		<div data-options="region:'center'">
-			<div id="" class="easyui-tabs" fit=true style="">
+			<div id="contentTabs" class="easyui-tabs" fit=true style="width:100%;height: 100%;">
 				 <div title="首页" iconCls="icon-house">
                    <p style="padding: 30px">欢迎使用中小学校园管理系统</p>
                  </div>
 			</div>
+			<div id="Rmenu" class="easyui-menu">
+				<div id="refreshcur" iconCls="icon-reload">刷新(R)</div>
+	            <div id="closecur"  iconCls="icon-cancel">关闭(C)</div>
+	            <div id="closeall">关闭所有(A)</div>
+	            <div id="closeother" iconCls="icon-cross">关闭其他(O)</div>
+	            <div id="closeright">关闭右侧标签页(R)</div>
+			    <div id="closeleft">关闭左侧标签页(L)</div>
+       		</div>
 		</div>
 		<!--下-->
 		<div data-options="region:'south',split:false,border:false"
     		 class="layout-south" style="height: 30px;line-height: 30px;text-align: center;">
 			Copyright &copy; 2017-2099校园信息管理系统
 		</div>
+		<form id="password-edit" class="easyui-dialog">
+			<input type="hidden" id="user_id" value="<?php echo session('sessSchinfo.user_id')?>">
+			<table class="form-table" style="max-width: 420px;padding: 30px;"  cellpadding=5>
+				<tbody>
+				<tr>
+					<td>
+						<label for="user_name" class="form-label">用户名：</label>
+					</td>
+					<td>
+						<input type="text" id="user_name" class="easyui-textbox" value="{:session('sessSchinfo.login_name')}">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="user_pwd" class="form-label">账号密码：</label>
+					</td>
+					<td>
+						<input type="password" id="user_pwd" class="easyui-textbox">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="user_pwd2" class="form-label">确认密码：</label>
+					</td>
+					<td>
+						<input type="password" id="user_pwd2" class="easyui-textbox">
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
 </div>
 <script>  
 	var ThinkPHP={
