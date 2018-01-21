@@ -1,5 +1,5 @@
 .project/
 build.php/
 LICENSE.txt/
-.settings
-.idea
+.settings/
+.idea/
